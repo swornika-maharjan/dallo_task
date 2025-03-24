@@ -18,4 +18,13 @@ class AppColors {
   static const Color sandip = Color(0x0D1C7DBB);
   static const Color dentbox = Color(0xFFFFFFFF);
   static const Color upcoming = Color(0xFFF89F1C);
+  static const Color longeststreak = Color(0xFFA0A0A0);
+  static const Color firebackground = Color(0xFFF3705A);
+  static const Color overallbox = Color(0xFFF4F4F4);
+  static const Color correct = Color(0xFF63DAAB);
+  static const Color incorrect = Color(0xFF657798);
+  static const Color unanswered = Color(0xFF6394FA);
+
+  static const Color youtubeback = Color(0xFFEE7676);
+  static const Color notesback = Color(0xFFFED396);
 }

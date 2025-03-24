@@ -20,7 +20,7 @@ class EcommercState extends StatelessWidget {
               icon: const Icon(Icons.saved_search_rounded),
             ),
           ],
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
               Tab(icon: Icon(Icons.account_circle), text: 'Profile'),

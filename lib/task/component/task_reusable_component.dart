@@ -202,27 +202,22 @@ Widget buildExamContainer({
               children: [
                 Row(
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.dentbox, // Change to any color
-                          ),
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.dentbox, // Change to any color
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'assets/images/checklist.png',
+                          width: 28,
+                          height: 28,
                         ),
-                        Positioned(
-                          top: 5,
-                          left: 5,
-                          child: Image.asset(
-                            'assets/images/checklist.png',
-                            width: 28,
-                            height: 28,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
+
                     SizedBox(width: 10),
                     Text(
                       title,

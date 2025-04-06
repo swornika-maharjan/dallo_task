@@ -90,7 +90,7 @@ class ChhetriContainer extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: [
-                Icon(Icons.remove_red_eye_outlined, color: AppColors.lightbulb),
+                Icon(Icons.calendar_month_outlined, color: AppColors.lightbulb),
                 const SizedBox(width: 4),
                 Text(
                   'Sunday, July 31, 11:15 AM-12 AM',

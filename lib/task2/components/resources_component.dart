@@ -6,17 +6,21 @@ class ResourcesContainer extends StatelessWidget {
     super.key,
     required this.details,
     required this.data,
+    required this.imagepath,
+    required this.image,
   });
   final String details;
   final String data;
+  final String imagepath;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topRight,
       child: Container(
-        height: 65,
-        width: 218,
+        height: 59,
+        width: 185,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: AppColors.dentbox,
@@ -25,17 +29,17 @@ class ResourcesContainer extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(left: 10),
-              height: 50,
-              width: 40,
+              height: 30,
+              width: 33,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/yback.png'),
+                  Image.asset(imagepath),
 
-                  Positioned(child: Image.asset('assets/images/youtube.png')),
+                  Positioned(child: Image.asset(image)),
                 ],
               ),
             ),
-            SizedBox(width: 20),
+            SizedBox(width: 4),
             Column(
               children: [
                 SizedBox(height: 10),
@@ -44,6 +48,7 @@ class ResourcesContainer extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: AppColors.beginner,
+                    fontSize: 14,
                   ),
                 ),
                 Row(
@@ -52,7 +57,7 @@ class ResourcesContainer extends StatelessWidget {
                       data,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 14,
                         color: AppColors.primary,
                       ),
                     ),
@@ -61,6 +66,7 @@ class ResourcesContainer extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
                         color: AppColors.beginner,
+                        fontSize: 14,
                       ),
                     ),
                   ],

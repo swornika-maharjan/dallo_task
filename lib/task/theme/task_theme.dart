@@ -14,6 +14,7 @@ class AppColors {
   static const Color mockset = Color(0xFFE0EFFE);
   static const Color pastyear = Color(0xFFD9EBEF);
   static const Color subject = Color(0xFFFCF5E3);
+
   static const Color custom = Color(0xFFF9E3CC);
   static const Color sandip = Color(0x0D1C7DBB);
   static const Color dentbox = Color(0xFFFFFFFF);
@@ -27,4 +28,11 @@ class AppColors {
 
   static const Color youtubeback = Color(0xFFEE7676);
   static const Color notesback = Color(0xFFFED396);
+  static const Color allbutton = Color(0xFFD9D9D9);
+  static const Color dropdownbutton = Color(0xFFA9A9A9);
+  static const Color barline = Color(0xFFD3D3D3);
+  static const Color backarrow = Color(0xFFC4C4C4);
+  static const Color ringcolor = Color(0xFFE4E4E4);
+
+  static const Color calendarcolor = Color(0xFF1890FF);
 }

@@ -64,6 +64,7 @@ class EquillibriumContainer extends StatelessWidget {
                   ),
                   Row(
                     children: [
+                      SizedBox(width: 20),
                       Text(
                         '  AM-12:00 PM',
                         style: TextStyle(
@@ -96,6 +97,7 @@ class EquillibriumContainer extends StatelessWidget {
                   ),
                   Row(
                     children: [
+                      SizedBox(width: 20),
                       Text(
                         '  secs',
                         style: TextStyle(

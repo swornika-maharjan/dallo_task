@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/task/component/buildcard_component.dart';
+import 'package:flutterproject/task/controller/grid_controller.dart';
 import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
 
 class GridComponent extends StatelessWidget {
-  const GridComponent({super.key});
+  GridComponent({super.key});
+  final GridController controller = Get.put(GridController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +29,21 @@ class GridComponent extends StatelessWidget {
             right: 16,
             child: SizedBox(
               height: 400,
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+              child: GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  buildCard("Quiz of the day", "assets/images/quiz.png"),
-                  buildCard("Course", "assets/images/course.png"),
-                  buildCard("E-Books Collection", "assets/images/ebooks.png"),
-                  buildCard(
-                    "Discussion Platform",
-                    "assets/images/discussion.png",
-                  ),
-                ],
+                itemCount: 4,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                itemBuilder: (context, index) {
+                  return buildCard(
+                    controller.item[index]["title"]!,
+                    controller.item[index]["image"]!,
+                  );
+                },
               ),
             ),
           ),

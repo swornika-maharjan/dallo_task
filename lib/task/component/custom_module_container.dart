@@ -26,28 +26,22 @@ class CustomModuleContainer extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.dentbox,
-                            ),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.dentbox,
+                        ),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/checklist.png',
+                            width: 28,
+                            height: 28,
                           ),
-                          Positioned(
-                            top: 5,
-                            left: 5,
-                            child: Image.asset(
-                              'assets/images/checklist.png',
-                              width: 28,
-                              height: 28,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
+
                       SizedBox(width: 10),
                       Text(
                         'Custom Module',

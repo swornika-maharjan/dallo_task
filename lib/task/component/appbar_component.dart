@@ -29,11 +29,15 @@ class AppbarComponent extends StatelessWidget implements PreferredSizeWidget {
           SizedBox(
             height: 24,
             width: 24,
-            child: Image.asset('assets/images/drawer.png'),
+            child: GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              child: Image.asset('assets/images/drawer.png'),
+            ),
           ),
           const SizedBox(width: 16),
         ],
-        
       ),
     );
   }

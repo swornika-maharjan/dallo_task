@@ -21,7 +21,7 @@ class _TabBarComponentState extends State<TabBarComponent>
       children: [
         // Tab Bar
         Container(
-          height: 105,
+          height: 110,
           color: AppColors.primary,
           child: Column(
             children: [
@@ -42,19 +42,22 @@ class _TabBarComponentState extends State<TabBarComponent>
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.only(top: 15),
                 child: TabBar(
                   controller: controller.tabController,
-                  tabs: const [
-                    Tab(text: "Profile"),
-                    Tab(text: "Transactions"),
-                    Tab(text: "Analytics"),
-                    Tab(text: "Password Settings"),
-                  ],
+                  tabs:
+                      controller.tabItems
+                          .map(
+                            (item) => Tab(
+                              child: Text(item, style: TextStyle(fontSize: 14)),
+                            ),
+                          )
+                          .toList(),
                   labelColor: AppColors.dentbox,
                   unselectedLabelColor: AppColors.dentbox.withOpacity(0.7),
                   indicatorColor: AppColors.dentbox,
                   indicatorSize: TabBarIndicatorSize.tab,
+                  isScrollable: true,
                 ),
               ),
             ],

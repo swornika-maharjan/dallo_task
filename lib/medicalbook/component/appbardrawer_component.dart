@@ -19,7 +19,7 @@ class AppbarComponents extends StatelessWidget implements PreferredSizeWidget {
           children: [
             GestureDetector(
               onTap: () {
-                
+                Scaffold.of(context).openDrawer();
               },
               child: Image.asset(
                 'assets/images/drawer.png',

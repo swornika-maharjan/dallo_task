@@ -19,19 +19,19 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // endDrawer: Drawer(
-      //   child: Container(
-      //     height: 150,
-      //     width: 150,
-      //     decoration: BoxDecoration(color: AppColors.liveexam),
-      //     child: Padding(
-      //       padding: const EdgeInsets.all(45),
-      //       child: Column(
-      //         children: [Text('Accounts'), Text('Settings'), Text('Logout ')],
-      //       ),
-      //     ),
-      //   ),
-      // ),
+      drawer: Drawer(
+        child: Container(
+          height: 150,
+          width: 150,
+          decoration: BoxDecoration(color: AppColors.liveexam),
+          child: Padding(
+            padding: const EdgeInsets.all(45),
+            child: Column(
+              children: [Text('Accounts'), Text('Settings'), Text('Logout ')],
+            ),
+          ),
+        ),
+      ),
       appBar: AppbarComponents(),
       body: SingleChildScrollView(child: BookBundlesComponent()),
       bottomNavigationBar: SizedBox(

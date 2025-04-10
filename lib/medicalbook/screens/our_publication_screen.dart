@@ -72,112 +72,115 @@ class OurPublicationScreen extends StatelessWidget {
             ),
             Container(
               width: 400,
-              // height: 800,
+              height: 800,
               color: AppColors.dentbox,
-              child: GridView.builder(
-                itemCount: 6,
-                padding: EdgeInsets.all(8),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 0.53,
-                ),
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.dentbox,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/images/loksewa.png',
-                          height: 193,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          children: [
-                            Container(
-                              height: 20,
-                              width: 35,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: AppColors.salebutton,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'SALE',
-                                  style: TextStyle(
-                                    color: AppColors.dentbox,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 5),
-                            Container(
-                              height: 20,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: AppColors.offer,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '8% off',
-                                  style: TextStyle(
-                                    color: AppColors.dentbox,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: Text(
-                            'Loksewa Aayog Pharma idol for Pharmacy Officers',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.featuredescrip,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: GridView.builder(
+                  itemCount: 6,
+                  padding: EdgeInsets.all(8),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 0.53,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.dentbox,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/images/loksewa.png',
+                            height: 193,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
                           ),
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          children: [
-                            Text(
-                              'Nrs. 1500.00',
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4),
+                                  color: AppColors.salebutton,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'SALE',
+                                    style: TextStyle(
+                                      color: AppColors.dentbox,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Container(
+                                height: 20,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4),
+                                  color: AppColors.offer,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '8% off',
+                                    style: TextStyle(
+                                      color: AppColors.dentbox,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: Text(
+                              'Loksewa Aayog Pharma idol for Pharmacy Officers',
                               style: TextStyle(
-                                color: AppColors.price,
                                 fontSize: 12,
+                                color: AppColors.featuredescrip,
                               ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(width: 4),
-                            Text(
-                              'Nrs. 2,720.00',
-                              style: TextStyle(
-                                color: AppColors.beginner,
-                                fontSize: 11,
-                                decoration: TextDecoration.lineThrough,
-                                decorationThickness: 1.2,
-                                decorationColor: AppColors.beginner,
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(
+                                'Nrs. 1500.00',
+                                style: TextStyle(
+                                  color: AppColors.price,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                              SizedBox(width: 4),
+                              Text(
+                                'Nrs. 2,720.00',
+                                style: TextStyle(
+                                  color: AppColors.beginner,
+                                  fontSize: 11,
+                                  decoration: TextDecoration.lineThrough,
+                                  decorationThickness: 1.2,
+                                  decorationColor: AppColors.beginner,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

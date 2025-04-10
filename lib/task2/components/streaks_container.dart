@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 
 class StreaksContainer extends StatelessWidget {
   const StreaksContainer({super.key, required this.title, required this.days});

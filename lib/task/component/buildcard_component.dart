@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 
 Widget buildCard(String title, String imagePath) {
   return Container(

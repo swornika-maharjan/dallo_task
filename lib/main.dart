@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_network_library/data_provider.dart';
-import 'package:flutterproject/task2/screens/myaccounts.dart';
+import 'package:flutterproject/medicalbook/screens/all_categories_screen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MyAccountsScreen(),
+      home: AllCategoriesScreen(),
     );
   }
 }

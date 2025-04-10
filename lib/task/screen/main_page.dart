@@ -12,7 +12,7 @@ import 'package:flutterproject/task/component/sandip_container.dart';
 import 'package:flutterproject/task/component/subjectwise_container.dart';
 import 'package:flutterproject/task/component/task_reusable_component.dart';
 import 'package:flutterproject/task/controller/course_card_controller.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get.dart';
 
 class ShikshaNetworkState extends StatelessWidget {

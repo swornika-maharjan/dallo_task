@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/task/component/buildcard_component.dart';
 import 'package:flutterproject/task/controller/grid_controller.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 

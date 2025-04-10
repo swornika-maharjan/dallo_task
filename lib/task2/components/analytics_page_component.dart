@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 import 'package:flutterproject/task2/components/back_arrow_component.dart';
 import 'package:flutterproject/task2/components/barchart/bar_chart.dart';
 import 'package:flutterproject/task2/components/calendar.dart';

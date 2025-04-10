@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 import 'package:flutterproject/task2/components/analytics_page_component.dart';
 import 'package:flutterproject/task2/controller/tab_bar_controller.dart';
 import 'package:get/get.dart';
@@ -72,7 +72,7 @@ class _TabBarComponentState extends State<TabBarComponent>
               Center(child: Text("Profile page")),
               Center(child: Text('Transaction page')),
               AnalyticsComponent(),
-              Center(child: Text('password settings page')),
+              Center(child: Text('Password settings page')),
             ],
           ),
         ),

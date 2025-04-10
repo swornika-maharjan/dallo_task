@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/task/theme/task_theme.dart';
+import 'package:flutterproject/theme/task_theme.dart';
 import 'package:flutterproject/task2/components/linechart/line_chart.dart';
 import 'package:flutterproject/task2/components/linechart/line_chart_2.dart';
 import 'package:flutterproject/task2/controller/topic_wise_controller.dart';
@@ -23,6 +23,7 @@ class TopicwiseContainer extends StatelessWidget {
       width: 400,
       decoration: BoxDecoration(color: AppColors.dentbox),
       child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: controller.topicWisecontainer.length,
         separatorBuilder:
             (context, index) => SizedBox(
@@ -30,7 +31,7 @@ class TopicwiseContainer extends StatelessWidget {
               child: Container(color: AppColors.primary.withOpacity(0.1)),
             ),
         itemBuilder: (context, index) {
-          final title =
+          final topicwise =
               controller.topicWisecontainer[index]['title'] ==
               'Topic wise test';
           return SizedBox(
@@ -63,12 +64,12 @@ class TopicwiseContainer extends StatelessWidget {
                         style: TextStyle(color: AppColors.dental, fontSize: 12),
 
                         value:
-                            title
+                            topicwise
                                 ? controller.dropDownitems
                                 : controller.selectedItems,
 
                         onChanged: (value) {
-                          title
+                          topicwise
                               ? controller.selectItems(value!)
                               : controller.onItemsSelected(value!);
                         },
@@ -94,12 +95,12 @@ class TopicwiseContainer extends StatelessWidget {
                           children:
                               [day, week, month, year].map((label) {
                                 final isselected =
-                                    title
+                                    topicwise
                                         ? controller.selectedRange == label
                                         : controller.range == label;
                                 return GestureDetector(
                                   onTap: () {
-                                    title
+                                    topicwise
                                         ? controller.selectRange(label)
                                         : controller.onRangeSelected(label);
                                   },
@@ -140,7 +141,7 @@ class TopicwiseContainer extends StatelessWidget {
                   height: 250,
                   width: 340,
                   child:
-                      title
+                      topicwise
                           ? LineChartScreen(LineChartData())
                           : LineChartScreen2(LineChartData()),
                 ),
@@ -153,7 +154,8 @@ class TopicwiseContainer extends StatelessWidget {
                       width: 20,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: title ? AppColors.dentbox : AppColors.primary,
+                        color:
+                            topicwise ? AppColors.dentbox : AppColors.primary,
                       ),
                     ),
                     SizedBox(width: 5),
@@ -168,7 +170,7 @@ class TopicwiseContainer extends StatelessWidget {
                       width: 20,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: title ? AppColors.dentbox : AppColors.dental,
+                        color: topicwise ? AppColors.dentbox : AppColors.dental,
                       ),
                     ),
                     SizedBox(width: 5),

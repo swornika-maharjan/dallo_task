@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/component/appbardrawer_component.dart';
 import 'package:flutterproject/medicalbook/component/book_bundles_component.dart';
 import 'package:flutterproject/medicalbook/controller/bottom_navigation_controller.dart';
+import 'package:flutterproject/medicalbook/controller/side_bar_controller.dart';
 import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get.dart';
 
@@ -16,24 +17,61 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
   final BottomNavigationController controller = Get.put(
     BottomNavigationController(),
   );
+  final SideBarController barController = Get.put(SideBarController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        child: Container(
-          height: 150,
-          width: 150,
-          decoration: BoxDecoration(color: AppColors.liveexam),
-          child: Padding(
-            padding: const EdgeInsets.all(45),
-            child: Column(
-              children: [Text('Accounts'), Text('Settings'), Text('Logout ')],
+        child: Column(
+          children: [
+            AppBar(
+              actionsPadding: EdgeInsets.only(right: 15),
+              toolbarHeight: 70,
+              leadingWidth: 100,
+              leading: Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Image.asset('assets/samiksha/samiksha.png'),
+              ),
+
+              actions: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.close_outlined),
+                ),
+              ],
             ),
-          ),
+
+            SizedBox(
+              height: 300,
+              child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return SizedBox(
+                    child: ListTile(
+                      title: Text(
+                        '${barController.sideBar[index]}',
+                        style: TextStyle(
+                          color: AppColors.featuredescrip,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
       appBar: AppbarComponents(),
+
+
       body: SingleChildScrollView(child: BookBundlesComponent()),
+
+      
       bottomNavigationBar: SizedBox(
         height: 67,
         child: Obx(

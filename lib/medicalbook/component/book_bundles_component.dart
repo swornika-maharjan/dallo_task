@@ -112,7 +112,6 @@ class BookBundlesComponent extends StatelessWidget {
         SizedBox(height: 10),
 
         ShopCollectionsComponent(),
-        
       ],
     );
   }

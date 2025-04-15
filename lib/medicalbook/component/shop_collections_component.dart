@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/component/buttons_component.dart';
 import 'package:flutterproject/medicalbook/component/equipment_component.dart';
 import 'package:flutterproject/medicalbook/component/launching_soon_component.dart';
-import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
 import 'package:flutterproject/medicalbook/component/refer_component.dart';
+import 'package:flutterproject/medicalbook/screens/launching_soon_screen.dart';
+import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
 import 'package:flutterproject/theme/task_theme.dart';
+import 'package:get/get.dart';
 
 class ShopCollectionsComponent extends StatelessWidget {
   const ShopCollectionsComponent({super.key});
@@ -152,6 +154,7 @@ class ShopCollectionsComponent extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Launching soon!',
@@ -161,21 +164,33 @@ class ShopCollectionsComponent extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(width: 170),
-              Text(
-                'View all',
-                style: TextStyle(color: AppColors.viewall, fontSize: 12),
-              ),
 
-              Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: AppColors.viewall,
-                size: 16,
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => LaunchingSoonScreen());
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      'View all',
+                      style: TextStyle(color: AppColors.viewall, fontSize: 12),
+                    ),
+
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      color: AppColors.viewall,
+                      size: 16,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
           SizedBox(height: 10),
-          LaunchingSoonComponent(imagepath: 'assets/images/launchpharma.png'),
+          LaunchingSoonComponent(
+            imagepath:
+                'https://tmm.chicagodistributioncenter.com/IsbnImages/9780226822952.jpg',
+          ),
           EquipmentComponent(),
           SizedBox(height: 20),
           ReferComponent(),

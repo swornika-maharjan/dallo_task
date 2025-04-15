@@ -103,6 +103,7 @@ class DTColor {
   static const Color whiteGrey = Color(0xffF2F2F2);
   static const Color darkbluishgray = Color(0xFF3A3C5C);
   static const Color deeproyalblue = Color(0xFF003389);
+  static const Color lightpink = Color(0xFFFEF4F4);
 
   static const Color liteRed = Color(0x26F12525);
   static var positiveGradientColors = [

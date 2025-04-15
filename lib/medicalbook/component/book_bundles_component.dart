@@ -23,13 +23,15 @@ class BookBundlesComponent extends StatelessWidget {
               _buildBundlesContainer(context),
               _buildBundlesContainer(context),
               _buildBundlesContainer(context),
+              _buildBundlesContainer(context),
+              _buildBundlesContainer(context),
             ],
           ),
         ),
         Center(
           child: SmoothPageIndicator(
             controller: _controller,
-            count: 4,
+            count: 6,
             axisDirection: Axis.horizontal,
             effect: WormEffect(
               activeDotColor: AppColors.shopbox,
@@ -40,48 +42,31 @@ class BookBundlesComponent extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              ButtonsComponent(
+        SizedBox(
+          height: 47,
+          child: ListView.builder(
+            itemCount: 4,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return ButtonsComponent(
                 text: 'New arrivals',
                 imagepath: 'assets/images/newarrivals.png',
                 width: 115,
-              ),
-              SizedBox(width: 15),
-              ButtonsComponent(
-                text: 'Best sellers',
-                imagepath: 'assets/images/bestsellers.png',
-                width: 115,
-              ),
-              SizedBox(width: 15),
-              ButtonsComponent(
-                text: 'Featured',
-                imagepath: 'assets/images/featured.png',
-                width: 115,
-              ),
-              SizedBox(width: 15),
-              ButtonsComponent(
-                text: 'Special',
-                imagepath: 'assets/images/heart.png',
-                width: 115,
-              ),
-            ],
+              );
+            },
           ),
         ),
+
         SizedBox(height: 15),
         FeaturedComponent(
           text: 'Featured',
           imagepath: 'assets/images/featured.png',
-          data: '',
+
           hurryup: AppColors.medicalbook,
           size: 16,
-          weight: FontWeight.w700,
-          offer: '',
-          width: 190,
         ),
         SizedBox(height: 20),
+
         BlackFridayComponent(),
         SizedBox(height: 20),
 
@@ -89,12 +74,10 @@ class BookBundlesComponent extends StatelessWidget {
         FeaturedComponent(
           text: 'New Arrivals',
           imagepath: 'assets/images/newarrivals.png',
-          data: '',
-          offer: '',
+
           size: 16,
-          weight: FontWeight.w700,
+
           hurryup: AppColors.medicalbook,
-          width: 170,
         ),
         SizedBox(height: 20),
 
@@ -102,12 +85,10 @@ class BookBundlesComponent extends StatelessWidget {
         FeaturedComponent(
           text: 'Best Sellers',
           imagepath: 'assets/images/bestsellers.png',
-          data: '',
-          offer: '',
+
           size: 16,
-          weight: FontWeight.w700,
+
           hurryup: AppColors.medicalbook,
-          width: 170,
         ),
         SizedBox(height: 10),
 

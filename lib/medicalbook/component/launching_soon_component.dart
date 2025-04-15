@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/theme/task_theme.dart';
 
@@ -35,7 +36,7 @@ class LaunchingSoonComponent extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    Image.asset(imagepath, height: 115, width: 92),
+                    CachedNetworkImage(height: 115, width: 92, imageUrl: imagepath,),
                     SizedBox(width: 10),
                     Expanded(
                       child: Column(

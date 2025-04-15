@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_network_library/data_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutterproject/medicalbook/screens/featured_screen.dart';
+import 'package:flutterproject/medicalbook/screens/special_offer_screen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,7 +38,7 @@ void main() async {
   await _configureNetworkSettings();
   runApp(
     ScreenUtilInit(
-      designSize: Size(375, 812), 
+      designSize: Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: FeaturedScreen(),
+      home: SpecialOfferScreen(),
     );
   }
 }

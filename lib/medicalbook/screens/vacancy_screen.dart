@@ -26,6 +26,7 @@ class VacancyScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 19, vertical: 15),
             child: ListView.separated(
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return ComponentWrapper(

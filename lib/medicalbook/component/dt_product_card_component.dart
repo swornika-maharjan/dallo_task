@@ -9,7 +9,7 @@ class DTProductCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * .400,
+      width: MediaQuery.of(context).size.width * .456,
       decoration: const BoxDecoration(color: DTColor.white),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

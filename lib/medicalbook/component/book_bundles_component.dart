@@ -1,46 +1,72 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/component/black_friday_component.dart';
 import 'package:flutterproject/medicalbook/component/buttons_component.dart';
+import 'package:flutterproject/medicalbook/component/equipment_component.dart';
 import 'package:flutterproject/medicalbook/component/featured_component.dart';
+import 'package:flutterproject/medicalbook/component/launching_soon_component.dart';
+import 'package:flutterproject/medicalbook/component/refer_component.dart';
 import 'package:flutterproject/medicalbook/component/shop_collections_component.dart';
+import 'package:flutterproject/medicalbook/controller/carousel_controller.dart';
+import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
+import 'package:flutterproject/theme/dt_color.dart';
 import 'package:flutterproject/theme/task_theme.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
-class BookBundlesComponent extends StatelessWidget {
-  BookBundlesComponent({super.key});
-  final PageController _controller = PageController();
+class BookBundlesComponent extends StatefulWidget {
+  const BookBundlesComponent({super.key});
 
+  @override
+  State<BookBundlesComponent> createState() => _BookBundlesComponentState();
+}
+
+class _BookBundlesComponentState extends State<BookBundlesComponent> {
+  final CarouselIndexController controller = Get.put(CarouselIndexController());
+  final int _totalSlides = 6;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
           height: 200,
-          child: PageView(
-            controller: _controller,
-            children: [
-              _buildBundlesContainer(context),
-              _buildBundlesContainer(context),
-              _buildBundlesContainer(context),
-              _buildBundlesContainer(context),
-              _buildBundlesContainer(context),
-              _buildBundlesContainer(context),
-            ],
+          child: CarouselSlider(
+            disableGesture: true,
+            options: CarouselOptions(
+              height: 200.0,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              enlargeCenterPage: false,
+              viewportFraction: 1.0, // one full item at a time
+              onPageChanged: (index, reason) {
+                controller.updateIndex(index);
+              },
+            ),
+            items: List.generate(6, (index) {
+              return _buildBundlesContainer(context);
+            }),
           ),
         ),
-        Center(
-          child: SmoothPageIndicator(
-            controller: _controller,
-            count: 6,
-            axisDirection: Axis.horizontal,
-            effect: WormEffect(
-              activeDotColor: AppColors.shopbox,
-              dotHeight: 10,
-              dotWidth: 10,
-              dotColor: AppColors.backarrow,
+        SizedBox(
+          child: Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(_totalSlides, (index) {
+                bool isActive = controller.currentIndex.value == index;
+                return AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  width: isActive ? 20 : 8,
+                  height: 6,
+                  margin: EdgeInsets.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(
+                    color: isActive ? DTColor.orange : DTColor.greyLite,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                );
+              }),
             ),
           ),
         ),
+
         SizedBox(height: 10),
         SizedBox(
           height: 47,
@@ -93,6 +119,15 @@ class BookBundlesComponent extends StatelessWidget {
         SizedBox(height: 10),
 
         ShopCollectionsComponent(),
+        LaunchingSoonComponent(
+          imagepath:
+              'https://heritagebooks.com.np/wp-content/uploads/2025/02/Astanga-Hridayam.jpg',
+        ),
+        EquipmentComponent(),
+        SizedBox(height: 20),
+        ReferComponent(),
+        SizedBox(height: 10),
+        SizedBox(height: 200, width: 500, child: MoreOptionsScreen()),
       ],
     );
   }

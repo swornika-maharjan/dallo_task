@@ -14,6 +14,7 @@ class EquipmentComponent extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Equipment',
@@ -24,14 +25,18 @@ class EquipmentComponent extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 190),
-                Text(
-                  'View all',
-                  style: TextStyle(color: AppColors.viewall, fontSize: 12),
-                ),
-                Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  size: 16,
-                  color: AppColors.viewall,
+                Row(
+                  children: [
+                    Text(
+                      'View all',
+                      style: TextStyle(color: AppColors.viewall, fontSize: 12),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 16,
+                      color: AppColors.viewall,
+                    ),
+                  ],
                 ),
               ],
             ),

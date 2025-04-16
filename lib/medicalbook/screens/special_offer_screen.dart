@@ -17,6 +17,7 @@ class SpecialOfferScreen extends StatelessWidget {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 15),
         backgroundColor: DTColor.white,
+        centerTitle: false,
         title: Text(
           'Special offer 🎁 ',
           style: header4.copyWith(color: DTColor.academyBlue),
@@ -83,11 +84,12 @@ class SpecialOfferScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 6,
                 physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200, // Maximum width for each item
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 2 / 4,
+                  childAspectRatio:
+                      0.5, // Wider range of devices will handle this better
                 ),
                 itemBuilder: (context, index) {
                   return DTProductCardComponent();

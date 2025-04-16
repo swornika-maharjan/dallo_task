@@ -15,9 +15,14 @@ class MoreOptionsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Obx(() {
-          return Wrap(
-            spacing: 12,
-            runSpacing: 12,
+          return GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            childAspectRatio: 2.9,
+            shrinkWrap: true,
+            physics:
+                NeverScrollableScrollPhysics(), 
             children:
                 controller.options.map((option) {
                   final title = option['title']!;
@@ -27,7 +32,6 @@ class MoreOptionsScreen extends StatelessWidget {
                   return GestureDetector(
                     onTap: () => controller.selectOption(title),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.42,
                       padding: const EdgeInsets.symmetric(
                         vertical: 12,
                         horizontal: 10,

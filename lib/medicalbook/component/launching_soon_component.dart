@@ -36,7 +36,11 @@ class LaunchingSoonComponent extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    CachedNetworkImage(height: 115, width: 92, imageUrl: imagepath,),
+                    CachedNetworkImage(
+                      height: 115,
+                      width: 92,
+                      imageUrl: imagepath,
+                    ),
                     SizedBox(width: 10),
                     Expanded(
                       child: Column(

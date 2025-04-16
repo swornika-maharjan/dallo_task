@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/component/buttons_component.dart';
-import 'package:flutterproject/medicalbook/component/equipment_component.dart';
-import 'package:flutterproject/medicalbook/component/launching_soon_component.dart';
-import 'package:flutterproject/medicalbook/component/refer_component.dart';
 import 'package:flutterproject/medicalbook/screens/launching_soon_screen.dart';
-import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
 import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get.dart';
 
@@ -186,17 +182,6 @@ class ShopCollectionsComponent extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
-          LaunchingSoonComponent(
-            imagepath:
-                'https://tmm.chicagodistributioncenter.com/IsbnImages/9780226822952.jpg',
-          ),
-          EquipmentComponent(),
-          SizedBox(height: 20),
-          ReferComponent(),
-          SizedBox(height: 10),
-          SizedBox(height: 200, width: 500, child: MoreOptionsScreen()),
-          // CouponsComponent(),
         ],
       ),
     );

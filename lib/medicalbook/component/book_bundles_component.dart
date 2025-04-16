@@ -8,6 +8,7 @@ import 'package:flutterproject/medicalbook/component/launching_soon_component.da
 import 'package:flutterproject/medicalbook/component/refer_component.dart';
 import 'package:flutterproject/medicalbook/component/shop_collections_component.dart';
 import 'package:flutterproject/medicalbook/controller/carousel_controller.dart';
+import 'package:flutterproject/medicalbook/screens/book_bundles_screen.dart';
 import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
 import 'package:flutterproject/theme/dt_color.dart';
 import 'package:flutterproject/theme/task_theme.dart';
@@ -27,23 +28,28 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 200,
-          child: CarouselSlider(
-            disableGesture: true,
-            options: CarouselOptions(
-              height: 200.0,
-              autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
-              enlargeCenterPage: false,
-              viewportFraction: 1.0, // one full item at a time
-              onPageChanged: (index, reason) {
-                controller.updateIndex(index);
-              },
+        GestureDetector(
+          onTap: () {
+            Get.to(() => BookBundlesScreen());
+          },
+          child: SizedBox(
+            height: 200,
+            child: CarouselSlider(
+              disableGesture: true,
+              options: CarouselOptions(
+                height: 200.0,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                enlargeCenterPage: false,
+                viewportFraction: 1.0, // one full item at a time
+                onPageChanged: (index, reason) {
+                  controller.updateIndex(index);
+                },
+              ),
+              items: List.generate(6, (index) {
+                return _buildBundlesContainer(context);
+              }),
             ),
-            items: List.generate(6, (index) {
-              return _buildBundlesContainer(context);
-            }),
           ),
         ),
         SizedBox(

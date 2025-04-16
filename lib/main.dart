@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_network_library/data_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutterproject/medicalbook/screens/wish_list_screen.dart';
+import 'package:flutterproject/medicalbook/screens/main_page.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: WishListScreen(),
+      home: MedicalBookScreen(),
     );
   }
 }

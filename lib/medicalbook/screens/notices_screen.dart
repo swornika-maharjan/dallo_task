@@ -26,6 +26,7 @@ class NoticesScreen extends StatelessWidget {
         children: [
           ListView.separated(
             separatorBuilder: (context, index) => SizedBox(height: 15),
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 4,
             padding: EdgeInsets.symmetric(horizontal: 19, vertical: 15),

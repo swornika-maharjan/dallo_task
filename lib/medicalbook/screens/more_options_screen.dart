@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutterproject/medicalbook/component_wrapper.dart';
 import 'package:flutterproject/medicalbook/controller/option_controller.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
 
 class MoreOptionsScreen extends StatelessWidget {
@@ -19,10 +22,9 @@ class MoreOptionsScreen extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
-            childAspectRatio: 2.9,
+            childAspectRatio: 4 / 1,
             shrinkWrap: true,
-            physics:
-                NeverScrollableScrollPhysics(), 
+            physics: NeverScrollableScrollPhysics(),
             children:
                 controller.options.map((option) {
                   final title = option['title']!;
@@ -31,39 +33,22 @@ class MoreOptionsScreen extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () => controller.selectOption(title),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 10,
+                    child: ComponentWrapper(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 10,
                       ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color:
-                              isSelected ? Colors.orange : Colors.grey.shade200,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 3,
-                            offset: Offset(1, 1),
-                          ),
-                        ],
-                      ),
+                      borderColor:
+                          isSelected ? DTColor.orange : DTColor.platinum,
                       child: Row(
                         children: [
-                          Image.asset(iconPath, height: 24, width: 24),
+                          SvgPicture.asset(iconPath),
                           const SizedBox(width: 10),
-                          Flexible(
-                            child: Text(
-                              title,
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.dental,
-                              ),
-                              overflow: TextOverflow.ellipsis,
+                          Text(
+                            title,
+                            style: header5.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: DTColor.bookTitleBlack,
                             ),
                           ),
                         ],

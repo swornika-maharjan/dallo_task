@@ -7,11 +7,12 @@ import 'package:flutterproject/medicalbook/component/featured_component.dart';
 import 'package:flutterproject/medicalbook/component/launching_soon_component.dart';
 import 'package:flutterproject/medicalbook/component/refer_component.dart';
 import 'package:flutterproject/medicalbook/component/shop_collections_component.dart';
+import 'package:flutterproject/medicalbook/component_wrapper.dart';
 import 'package:flutterproject/medicalbook/controller/carousel_controller.dart';
 import 'package:flutterproject/medicalbook/screens/book_bundles_screen.dart';
 import 'package:flutterproject/medicalbook/screens/more_options_screen.dart';
 import 'package:flutterproject/theme/dt_color.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
 
 class BookBundlesComponent extends StatefulWidget {
@@ -83,7 +84,7 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
               return ButtonsComponent(
                 text: 'New arrivals',
                 imagepath: 'assets/images/newarrivals.png',
-                width: 120,
+                width: 125,
               );
             },
           ),
@@ -93,9 +94,6 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
         FeaturedComponent(
           text: 'Featured',
           imagepath: 'assets/images/featured.png',
-
-          hurryup: DTColor.academyBlue,
-          size: 16,
         ),
         SizedBox(height: 20),
 
@@ -106,10 +104,6 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
         FeaturedComponent(
           text: 'New Arrivals',
           imagepath: 'assets/images/newarrivals.png',
-
-          size: 16,
-
-          hurryup: DTColor.academyBlue,
         ),
         SizedBox(height: 20),
 
@@ -117,88 +111,70 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
         FeaturedComponent(
           text: 'Best Sellers',
           imagepath: 'assets/images/bestsellers.png',
-
-          size: 16,
-
-          hurryup: AppColors.medicalbook,
         ),
         SizedBox(height: 10),
 
         ShopCollectionsComponent(),
-        LaunchingSoonComponent(
-          imagepath:
-              'https://heritagebooks.com.np/wp-content/uploads/2025/02/Astanga-Hridayam.jpg',
-        ),
-        EquipmentComponent(),
+
+        LaunchingSoonComponent(),
+
         SizedBox(height: 20),
+
+        EquipmentComponent(),
+
+        SizedBox(height: 20),
+
         ReferComponent(),
+
         SizedBox(height: 10),
-        SizedBox(height: 200, width: 500, child: MoreOptionsScreen()),
+
+        SizedBox(height: 140, width: 500, child: MoreOptionsScreen()),
       ],
     );
   }
 
   Widget _buildBundlesContainer(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 410,
-      decoration: BoxDecoration(color: AppColors.bundlesbox),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      child: ComponentWrapper(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+        backgroundColor: DTColor.lightBlue,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
+            Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Medical Book Bundles',
-                    style: TextStyle(
-                      color: AppColors.medicalbook,
-                      fontSize: 14,
+                    style: header5.copyWith(
                       fontWeight: FontWeight.w700,
+                      color: DTColor.academyBlue,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 5),
                   Text(
                     'Explore thousands of medical materials, exclusive subscription packages, and more.',
-                    style: TextStyle(
-                      color: AppColors.description,
-                      fontSize: 11,
-                    ),
+                    style: header8.copyWith(fontWeight: FontWeight.w300),
                   ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: 40,
-                    width: 90,
-                    decoration: BoxDecoration(
-                      color: AppColors.shopbox,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Shop Now',
-                        style: TextStyle(color: AppColors.dentbox),
+                  SizedBox(height: 5),
+                  ComponentWrapper(
+                    backgroundColor: DTColor.orange,
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                    child: Text(
+                      'Shop Now',
+                      style: header8.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: DTColor.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
                 ],
               ),
             ),
-            // SizedBox(width: 25),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Image.asset(
-                    'assets/images/books.png',
-                    height: 150,
-                    width: double.infinity,
-                  ),
-                ],
-              ),
-            ),
+
+            Image.asset('assets/images/books.png', height: 160, width: 160),
           ],
         ),
       ),

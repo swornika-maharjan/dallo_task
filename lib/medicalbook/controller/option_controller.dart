@@ -6,9 +6,9 @@ class OptionController extends GetxController {
   // Storing data directly as list of maps
   final options =
       [
-        {'title': 'My Wishlists', 'icon': 'assets/images/heart1.png'},
-        {'title': 'My Coupons', 'icon': 'assets/images/coupon.png'},
-        {'title': 'Request book', 'icon': 'assets/images/request.png'},
+        {'title': 'My Wishlists', 'icon': 'assets/samiksha/heart.svg'},
+        {'title': 'My Coupons', 'icon': 'assets/samiksha/coupons.svg'},
+        {'title': 'Request book', 'icon': 'assets/samiksha/request.svg'},
       ].obs;
 
   void selectOption(String title) {

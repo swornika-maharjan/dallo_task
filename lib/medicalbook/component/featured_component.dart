@@ -12,14 +12,12 @@ class FeaturedComponent extends StatelessWidget {
     required this.text,
     required this.imagepath,
 
-    this.hurryup,
-    this.size,
+  
   });
   final String text;
   final String imagepath;
 
-  final Color? hurryup;
-  final double? size;
+
 
   @override
   @override
@@ -36,7 +34,10 @@ class FeaturedComponent extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: header4.copyWith(color: DTColor.academyBlue),
+                    style: header4.copyWith(
+                      color: DTColor.academyBlue,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(width: 5),
                   Image.asset(imagepath, height: 20, width: 20),
@@ -50,7 +51,10 @@ class FeaturedComponent extends StatelessWidget {
                   children: [
                     Text(
                       'View all',
-                      style: header7.copyWith(color: DTColor.orange),
+                      style: header7.copyWith(
+                        color: DTColor.orange,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     const SizedBox(width: 4),
                     Icon(

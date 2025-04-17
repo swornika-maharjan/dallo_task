@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/medicalbook/component_wrapper.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 
 class ReferComponent extends StatelessWidget {
   const ReferComponent({super.key});
@@ -8,86 +10,73 @@ class ReferComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 150,
-          width: 380,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: AppColors.dentbox,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(15),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+          child: ComponentWrapper(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Refer and earn reward points',
-                  style: TextStyle(
-                    color: AppColors.dental,
-                    fontSize: 14,
+                  style: header5.copyWith(
                     fontWeight: FontWeight.w700,
+                    color: DTColor.bookTitleBlack,
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 5),
                 Text(
                   'Refer your friends to shop with us. Each successful referral earns you exciting reward points! ⭐ 🏆',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.description,
-                  ),
+                  style: header7.copyWith(fontWeight: FontWeight.w400),
                 ),
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(
-                      height: 38,
+                    ComponentWrapper(
                       width: 280,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: AppColors.ringcolor,
-                          width: 1,
-                        ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 10,
                       ),
+                      borderColor: DTColor.platinum,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(width: 10),
                           Text(
                             'LeslieAlexandar1234',
-                            style: TextStyle(
-                              color: AppColors.dental,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12,
-                            ),
+                            style: header7.copyWith(color: DTColor.black),
                           ),
-                          SizedBox(width: 80),
-                          Icon(
-                            Icons.content_copy_outlined,
-                            color: AppColors.viewall,
-                            size: 16,
+
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.content_copy_outlined,
+                                color: DTColor.orange,
+                                size: 16,
+                              ),
+                              SizedBox(width: 4),
+                              Icon(
+                                Icons.arrow_drop_down,
+                                color: DTColor.orange,
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 4),
-                          Icon(Icons.arrow_drop_down, color: AppColors.viewall),
                         ],
                       ),
                     ),
                     SizedBox(width: 20),
-                    Container(
-                      height: 38,
-                      width: 38,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: AppColors.ringcolor,
-                          width: 1,
-                        ),
+                    ComponentWrapper(
+                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                      borderColor: DTColor.platinum,
+                      borderWidth: 1.5,
+                      child: Icon(
+                        Icons.share_outlined,
+                        size: 20,
+                        color: DTColor.darkbluishgray,
                       ),
-                      child: Icon(Icons.share_outlined),
                     ),
                   ],
                 ),
-                
               ],
             ),
           ),

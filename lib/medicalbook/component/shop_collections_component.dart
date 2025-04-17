@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/component/buttons_component.dart';
+import 'package:flutterproject/medicalbook/component_wrapper.dart';
 import 'package:flutterproject/medicalbook/screens/launching_soon_screen.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get.dart';
 
@@ -18,10 +21,9 @@ class ShopCollectionsComponent extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               'Shop by collections',
-              style: TextStyle(
-                fontSize: 16,
-                color: AppColors.medicalbook,
-                fontWeight: FontWeight.bold,
+              style: header4.copyWith(
+                fontWeight: FontWeight.w700,
+                color: DTColor.academyBlue,
               ),
             ),
           ),
@@ -46,16 +48,12 @@ class ShopCollectionsComponent extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 150,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    color: AppColors.pharma,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                ComponentWrapper(
+                  backgroundColor: DTColor.lightBlue,
                   child: Column(
                     children: [
                       SizedBox(height: 15),
@@ -67,10 +65,9 @@ class ShopCollectionsComponent extends StatelessWidget {
                       SizedBox(height: 5),
                       Text(
                         'Book Bundles',
-                        style: TextStyle(
-                          color: AppColors.medicalbook,
-                          fontSize: 14,
+                        style: header5.copyWith(
                           fontWeight: FontWeight.w700,
+                          color: DTColor.academyBlue,
                         ),
                       ),
                       SizedBox(height: 5),
@@ -79,10 +76,9 @@ class ShopCollectionsComponent extends StatelessWidget {
                         children: [
                           Text(
                             'Shop now',
-                            style: TextStyle(
-                              color: AppColors.viewall,
-                              fontSize: 12,
+                            style: header7.copyWith(
                               fontWeight: FontWeight.w700,
+                              color: DTColor.orange,
                             ),
                           ),
                           SizedBox(width: 5),
@@ -96,23 +92,16 @@ class ShopCollectionsComponent extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(width: 20),
-                Container(
-                  height: 150,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: AppColors.equipment,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+
+                ComponentWrapper(
+                  backgroundColor: DTColor.orangeLite,
                   child: Column(
                     children: [
-                      SizedBox(height: 15),
                       Text(
                         'Medical Equipment',
-                        style: TextStyle(
-                          color: AppColors.medicalbook,
-                          fontSize: 14,
+                        style: header5.copyWith(
                           fontWeight: FontWeight.w700,
+                          color: DTColor.academyBlue,
                         ),
                       ),
 
@@ -121,10 +110,9 @@ class ShopCollectionsComponent extends StatelessWidget {
                         children: [
                           Text(
                             'Shop now',
-                            style: TextStyle(
-                              color: AppColors.viewall,
-                              fontSize: 12,
+                            style: header7.copyWith(
                               fontWeight: FontWeight.w700,
+                              color: DTColor.orange,
                             ),
                           ),
                           SizedBox(width: 5),
@@ -154,10 +142,9 @@ class ShopCollectionsComponent extends StatelessWidget {
             children: [
               Text(
                 'Launching soon!',
-                style: TextStyle(
-                  color: AppColors.medicalbook,
-                  fontSize: 16,
+                style: header4.copyWith(
                   fontWeight: FontWeight.w700,
+                  color: DTColor.academyBlue,
                 ),
               ),
 
@@ -169,7 +156,10 @@ class ShopCollectionsComponent extends StatelessWidget {
                   children: [
                     Text(
                       'View all',
-                      style: TextStyle(color: AppColors.viewall, fontSize: 12),
+                      style: header7.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: DTColor.orange,
+                      ),
                     ),
 
                     Icon(

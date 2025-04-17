@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/medicalbook/component/dt_product_card_component.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:flutterproject/theme/task_theme.dart';
 
 class EquipmentComponent extends StatelessWidget {
@@ -7,8 +10,8 @@ class EquipmentComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      decoration: BoxDecoration(color: AppColors.dentbox),
+      height: 419,
+      decoration: BoxDecoration(color: DTColor.white),
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
@@ -18,18 +21,20 @@ class EquipmentComponent extends StatelessWidget {
               children: [
                 Text(
                   'Equipment',
-                  style: TextStyle(
-                    color: AppColors.medicalbook,
+                  style: header4.copyWith(
                     fontWeight: FontWeight.w700,
-                    fontSize: 16,
+                    color: DTColor.academyBlue,
                   ),
                 ),
-                SizedBox(width: 190),
+
                 Row(
                   children: [
                     Text(
                       'View all',
-                      style: TextStyle(color: AppColors.viewall, fontSize: 12),
+                      style: header7.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: DTColor.orange,
+                      ),
                     ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
@@ -47,54 +52,7 @@ class EquipmentComponent extends StatelessWidget {
                 separatorBuilder: (context, index) => SizedBox(width: 10),
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: 211,
-                    width: 165,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.dentbox,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/images/labcoat.png'),
-                        SizedBox(height: 4),
-                        Text(
-                          'Medical Lab Coat',
-                          style: TextStyle(
-                            color: AppColors.featuredescrip,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Text(
-                              'Nrs. 1500.00',
-                              style: TextStyle(
-                                color: AppColors.price,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            SizedBox(width: 4),
-                            Text(
-                              'Nrs. 2,720.00',
-                              style: TextStyle(
-                                color: AppColors.beginner,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.lineThrough,
-                                decorationThickness: 1.2,
-                                decorationColor: AppColors.beginner,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
+                  return DTProductCardComponent();
                 },
               ),
             ),

@@ -3,7 +3,8 @@ import 'package:flutterproject/medicalbook/component/appbardrawer_component.dart
 import 'package:flutterproject/medicalbook/component/book_bundles_component.dart';
 import 'package:flutterproject/medicalbook/controller/bottom_navigation_controller.dart';
 import 'package:flutterproject/medicalbook/controller/side_bar_controller.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
 
 class MedicalBookScreen extends StatefulWidget {
@@ -52,10 +53,9 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                     child: ListTile(
                       title: Text(
                         '${barController.sideBar[index]}',
-                        style: TextStyle(
-                          color: AppColors.featuredescrip,
-                          fontSize: 14,
+                        style: header5.copyWith(
                           fontWeight: FontWeight.w400,
+                          color: DTColor.darkbluishgray,
                         ),
                       ),
                     ),
@@ -68,10 +68,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
       ),
       appBar: AppbarComponents(),
 
-
       body: SingleChildScrollView(child: BookBundlesComponent()),
 
-      
       bottomNavigationBar: SizedBox(
         height: 67,
         child: Obx(
@@ -80,8 +78,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
             onTap: (value) {
               controller.getselectedIndex(value);
             },
-            selectedItemColor: AppColors.viewall,
-            unselectedItemColor: AppColors.bottomnav,
+            selectedItemColor: DTColor.orange,
+            unselectedItemColor: DTColor.darkbluishgray,
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
@@ -91,8 +89,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                   width: 20,
                   color:
                       controller.selectedIndex.value == 0
-                          ? AppColors.viewall
-                          : AppColors.bottomnav,
+                          ? DTColor.orange
+                          : DTColor.darkbluishgray,
                 ),
                 label: 'Home',
               ),
@@ -103,8 +101,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                   width: 20,
                   color:
                       controller.selectedIndex.value == 1
-                          ? AppColors.viewall
-                          : AppColors.bottomnav,
+                          ? DTColor.orange
+                          : DTColor.darkbluishgray,
                 ),
                 label: 'Search',
               ),
@@ -115,8 +113,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                   width: 20,
                   color:
                       controller.selectedIndex.value == 2
-                          ? AppColors.viewall
-                          : AppColors.bottomnav,
+                          ? DTColor.orange
+                          : DTColor.darkbluishgray,
                 ),
                 label: 'Categories',
               ),
@@ -127,8 +125,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                   height: 20,
                   color:
                       controller.selectedIndex.value == 3
-                          ? AppColors.viewall
-                          : AppColors.bottomnav,
+                          ? DTColor.orange
+                          : DTColor.darkbluishgray,
                 ),
                 label: 'cart',
               ),
@@ -139,8 +137,8 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
                   height: 20,
                   color:
                       controller.selectedIndex.value == 4
-                          ? AppColors.viewall
-                          : AppColors.bottomnav,
+                          ? DTColor.orange
+                          : DTColor.darkbluishgray,
                 ),
                 label: 'Account',
               ),

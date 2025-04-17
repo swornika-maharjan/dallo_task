@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/controller/order_issues_controller.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
 
 class OrderIssuesScreen extends StatelessWidget {
@@ -13,63 +14,64 @@ class OrderIssuesScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
-          backgroundColor: AppColors.dentbox,
+          centerTitle: false,
+          backgroundColor: DTColor.white,
           toolbarHeight: 70,
           title: Text(
             'Order Issues (34)',
-            style: TextStyle(
-              color: AppColors.medicalbook,
-              fontSize: 16,
+            style: header4.copyWith(
+              color: DTColor.academyBlue,
               fontWeight: FontWeight.w700,
             ),
           ),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(color: AppColors.barline.withOpacity(0.3)),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
         child: Obx(
           () => ListView.builder(
+            shrinkWrap: true,
             itemCount: controller.issuesList.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 5,
+                ),
                 child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.dentbox,
-                    // border: Border.symmetric(
-                    //   horizontal: BorderSide(
-                    //     color: AppColors.issueborder,
-                    //     width: 1,
-                    //   ),
-                    // ),
-                  ),
+                  decoration: BoxDecoration(color: DTColor.white),
                   child: ExpansionTile(
+                    iconColor: DTColor.academyBlue,
+                    shape: Border.all(color: Colors.transparent),
+                    collapsedShape: Border.all(color: Colors.transparent),
+
                     title: Text(
                       '${controller.issuesList[index]['question']}',
-                      style: TextStyle(
-                        fontSize: 14,
+                      style: header5.copyWith(
                         fontWeight: FontWeight.w600,
-                        color: AppColors.featuredescrip,
+                        color: DTColor.academyBlue,
                       ),
                     ),
                     children: [
                       Container(
                         height: 160,
                         decoration: BoxDecoration(
-                          border: Border.all(
-                            color: AppColors.issueborder,
-                            width: 10,
+                          border: Border.symmetric(
+                            horizontal: BorderSide(
+                              color: DTColor.borderLite,
+                              width: 3,
+                            ),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(20),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 15,
+                          ),
                           child: Text(
                             '${controller.issuesList[index]['answer']}',
-                            style: TextStyle(
-                              fontSize: 13,
+                            style: header6.copyWith(
                               fontWeight: FontWeight.w400,
-                              color: AppColors.description,
                             ),
                           ),
                         ),

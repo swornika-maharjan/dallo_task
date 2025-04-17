@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/medicalbook/controller/faqs_controller.dart';
 import 'package:flutterproject/medicalbook/screens/order_issues_screen.dart';
-import 'package:flutterproject/theme/task_theme.dart';
+import 'package:flutterproject/theme/dt_color.dart';
+import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
 
 class FaqsScreen extends StatelessWidget {
@@ -14,25 +15,25 @@ class FaqsScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
-          backgroundColor: AppColors.dentbox,
+          backgroundColor: DTColor.white,
           toolbarHeight: 70,
           title: Text(
             'FAQs',
-            style: TextStyle(
-              color: AppColors.medicalbook,
-              fontSize: 16,
+            style: header4.copyWith(
               fontWeight: FontWeight.w700,
+              color: DTColor.academyBlue,
             ),
           ),
         ),
       ),
+
       body: Container(
         height: 280,
         width: 420,
         decoration: BoxDecoration(
-          color: AppColors.dentbox,
+          color: DTColor.white,
           border: Border.symmetric(
-            horizontal: BorderSide(color: AppColors.beginner, width: 0.1),
+            horizontal: BorderSide(color: DTColor.borderGrey, width: 1),
           ),
         ),
         child: Padding(
@@ -43,11 +44,7 @@ class FaqsScreen extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                 'FAQ Categories',
-                style: TextStyle(
-                  color: AppColors.beginner,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
+                style: header7.copyWith(color: DTColor.assetGrey),
               ),
               SizedBox(height: 10),
               SizedBox(
@@ -60,10 +57,10 @@ class FaqsScreen extends StatelessWidget {
                       height: 57,
                       width: 328,
                       decoration: BoxDecoration(
-                        color: AppColors.dentbox,
+                        color: DTColor.white,
                         border: Border.symmetric(
                           horizontal: BorderSide(
-                            color: AppColors.border,
+                            color: DTColor.borderLite,
                             width: 1,
                           ),
                         ),
@@ -75,16 +72,14 @@ class FaqsScreen extends StatelessWidget {
                         child: ListTile(
                           leading: Text(
                             '${controller.faqCategories[index]}',
-                            style: TextStyle(
-                              color: AppColors.featuredescrip,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
+                            style: header6.copyWith(
+                              color: DTColor.darkbluishgray,
                             ),
                           ),
                           trailing: Icon(
                             Icons.arrow_forward_ios_outlined,
                             size: 20,
-                            color: AppColors.dropdownbutton,
+                            color: DTColor.textFieldHintColor,
                           ),
                         ),
                       ),

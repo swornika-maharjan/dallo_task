@@ -83,7 +83,7 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
               return ButtonsComponent(
                 text: 'New arrivals',
                 imagepath: 'assets/images/newarrivals.png',
-                width: 115,
+                width: 120,
               );
             },
           ),
@@ -94,7 +94,7 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
           text: 'Featured',
           imagepath: 'assets/images/featured.png',
 
-          hurryup: AppColors.medicalbook,
+          hurryup: DTColor.academyBlue,
           size: 16,
         ),
         SizedBox(height: 20),
@@ -109,7 +109,7 @@ class _BookBundlesComponentState extends State<BookBundlesComponent> {
 
           size: 16,
 
-          hurryup: AppColors.medicalbook,
+          hurryup: DTColor.academyBlue,
         ),
         SizedBox(height: 20),
 

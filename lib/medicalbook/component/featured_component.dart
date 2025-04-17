@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/medicalbook/component/dt_product_card_component.dart';
+import 'package:flutterproject/medicalbook/component_wrapper.dart';
 import 'package:flutterproject/medicalbook/screens/featured_screen.dart';
 import 'package:flutterproject/theme/dt_color.dart';
 import 'package:flutterproject/theme/dt_styles.dart';
-import 'package:flutterproject/theme/task_theme.dart';
 import 'package:get/get.dart';
 
 class FeaturedComponent extends StatelessWidget {
@@ -23,10 +24,7 @@ class FeaturedComponent extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 376,
-      width: 400,
-      decoration: BoxDecoration(color: DTColor.white),
+    return ComponentWrapper(
       padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,98 +65,14 @@ class FeaturedComponent extends StatelessWidget {
           ),
           SizedBox(height: 10),
           SizedBox(
-            height: 317,
-            child: ListView.builder(
+            height: 350,
+            child: ListView.separated(
+              shrinkWrap: true,
+              separatorBuilder: (context, index) => SizedBox(width: 10),
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (context, index) {
-                return Container(
-                  width: 165,
-                  height: 320,
-                  decoration: BoxDecoration(
-                    color: AppColors.dentbox,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/loksewa.png',
-                        width: 149,
-                        height: 193,
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          Container(
-                            height: 20,
-                            width: 35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: AppColors.salebutton,
-                            ),
-                            child: Center(
-                              child: Text(
-                                'SALE',
-                                style: TextStyle(
-                                  color: AppColors.dentbox,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 5),
-                          Container(
-                            height: 20,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: AppColors.offer,
-                            ),
-                            child: Center(
-                              child: Text(
-                                '8% off',
-                                style: TextStyle(
-                                  color: AppColors.dentbox,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        'Loksewa Aayog Pharma idol for Pharmacy Officers',
-                        style: header6.copyWith(),
-                      ),
-                      // const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          Text(
-                            'Nrs. 1500.00',
-                            style: TextStyle(
-                              color: AppColors.price,
-                              fontSize: 12,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Nrs. 2,720.00',
-                            style: TextStyle(
-                              color: AppColors.beginner,
-                              fontSize: 11,
-                              decoration: TextDecoration.lineThrough,
-                              decorationThickness: 1.2,
-                              decorationColor: AppColors.beginner,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
+                return DTProductCardComponent();
               },
             ),
           ),

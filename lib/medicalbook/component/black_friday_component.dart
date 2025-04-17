@@ -15,7 +15,7 @@ class BlackFridayComponent extends StatelessWidget {
     return Container(
       height: 518,
       width: 400,
-      decoration: BoxDecoration(color: AppColors.dentbox),
+      decoration: BoxDecoration(color: DTColor.white),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -25,10 +25,9 @@ class BlackFridayComponent extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               'Black Friday Mega Deals – Shop & Save Big! 🛍️',
-              style: TextStyle(
-                fontSize: 14,
-                color: AppColors.medicalbook,
+              style: header5.copyWith(
                 fontWeight: FontWeight.w700,
+                color: DTColor.academyBlue,
               ),
             ),
             SizedBox(height: 10),
@@ -40,10 +39,19 @@ class BlackFridayComponent extends StatelessWidget {
                     children: [
                       Text(
                         'Hurry up! ',
-                        style: header7.copyWith(color: DTColor.red),
+                        style: header7.copyWith(
+                          color: DTColor.red,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
 
-                      Text('Offer ends in', style: header7.copyWith()),
+                      Text(
+                        'Offer ends in',
+                        style: header7.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: DTColor.academyBlue,
+                        ),
+                      ),
                       SizedBox(width: 4),
                       Image.asset(
                         'assets/images/clock.png',
@@ -51,7 +59,13 @@ class BlackFridayComponent extends StatelessWidget {
                         width: 24,
                       ),
 
-                      Text(controller.formattedTime, style: header7.copyWith()),
+                      Text(
+                        controller.formattedTime,
+                        style: header7.copyWith(
+                          color: DTColor.red,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -63,7 +77,10 @@ class BlackFridayComponent extends StatelessWidget {
                     children: [
                       Text(
                         'View all',
-                        style: header7.copyWith(color: DTColor.orange),
+                        style: header7.copyWith(
+                          color: DTColor.orange,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                       Icon(
                         Icons.arrow_forward_ios_outlined,

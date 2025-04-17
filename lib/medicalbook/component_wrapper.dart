@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutterproject/theme/dt_color.dart';
 
@@ -27,7 +25,7 @@ class ComponentWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      padding: padding ,
+      padding: padding ?? EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: backgroundColor,
         border: Border.all(width: borderWidth!, color: borderColor!),

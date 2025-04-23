@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class OrderIssuesController extends GetxController {
-  final RxList _issuesList =
+  final issuesList =
       [
         {
           'question': 'What is the return policy?',
@@ -52,5 +52,18 @@ class OrderIssuesController extends GetxController {
         },
       ].obs;
 
-  List get issuesList => _issuesList.value;
+
+
+ 
+  final RxList<bool> isExpandedList = <bool>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    isExpandedList.addAll(List<bool>.filled(issuesList.length, false));
+  }
+
+  void toggleExpansion(int index) {
+    isExpandedList[index] = !isExpandedList[index];
+  }
 }

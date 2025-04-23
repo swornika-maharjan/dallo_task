@@ -3,6 +3,7 @@ import 'package:flutterproject/medicalbook/component/appbardrawer_component.dart
 import 'package:flutterproject/medicalbook/component/book_bundles_component.dart';
 import 'package:flutterproject/medicalbook/controller/bottom_navigation_controller.dart';
 import 'package:flutterproject/medicalbook/controller/side_bar_controller.dart';
+import 'package:flutterproject/medicalbook/screens/accounts_page.dart';
 import 'package:flutterproject/theme/dt_color.dart';
 import 'package:flutterproject/theme/dt_styles.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
           children: [
             AppBar(
               actionsPadding: EdgeInsets.only(right: 15),
-              toolbarHeight: 70,
+
               leadingWidth: 100,
               leading: Padding(
                 padding: const EdgeInsets.only(left: 15),
@@ -44,24 +45,20 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
               ],
             ),
 
-            SizedBox(
-              height: 300,
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    child: ListTile(
-                      title: Text(
-                        '${barController.sideBar[index]}',
-                        style: header5.copyWith(
-                          fontWeight: FontWeight.w400,
-                          color: DTColor.darkbluishgray,
-                        ),
-                      ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    '${barController.sideBar[index]}',
+                    style: header5.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: DTColor.darkbluishgray,
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -77,69 +74,46 @@ class _MedicalBookScreenState extends State<MedicalBookScreen> {
             currentIndex: controller.selectedIndex.value,
             onTap: (value) {
               controller.getselectedIndex(value);
+              switch (value) {
+                case 0:
+                  Get.to(() => const MedicalBookScreen());
+                  break;
+                case 1:
+                  // TODO: Navigate to Search Page
+                  break;
+                case 2:
+                  // TODO: Navigate to Categories Page
+                  break;
+                case 3:
+                  // TODO: Navigate to Cart Page
+                  break;
+                case 4:
+                  Get.to(() => AccountsPage());
+                  break;
+              }
             },
             selectedItemColor: DTColor.orange,
             unselectedItemColor: DTColor.darkbluishgray,
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/home.png',
-                  height: 20,
-                  width: 20,
-                  color:
-                      controller.selectedIndex.value == 0
-                          ? DTColor.orange
-                          : DTColor.darkbluishgray,
-                ),
+                icon: ImageIcon(AssetImage('assets/images/home.png')),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/search.png',
-                  height: 20,
-                  width: 20,
-                  color:
-                      controller.selectedIndex.value == 1
-                          ? DTColor.orange
-                          : DTColor.darkbluishgray,
-                ),
+                icon: ImageIcon(AssetImage('assets/images/search.png')),
                 label: 'Search',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/categories.png',
-                  height: 20,
-                  width: 20,
-                  color:
-                      controller.selectedIndex.value == 2
-                          ? DTColor.orange
-                          : DTColor.darkbluishgray,
-                ),
+                icon: ImageIcon(AssetImage('assets/images/categories.png')),
                 label: 'Categories',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/cart.png',
-                  width: 20,
-                  height: 20,
-                  color:
-                      controller.selectedIndex.value == 3
-                          ? DTColor.orange
-                          : DTColor.darkbluishgray,
-                ),
-                label: 'cart',
+                icon: ImageIcon(AssetImage('assets/images/cart.png')),
+                label: 'Cart',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/accounts.png',
-                  width: 20,
-                  height: 20,
-                  color:
-                      controller.selectedIndex.value == 4
-                          ? DTColor.orange
-                          : DTColor.darkbluishgray,
-                ),
+                icon: ImageIcon(AssetImage('assets/images/accounts.png')),
                 label: 'Account',
               ),
             ],

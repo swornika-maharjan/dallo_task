@@ -10,6 +10,4 @@ class FaqsController extends GetxController {
       ].obs;
 
   List get faqCategories => _faqCategories.value;
-
-  
 }

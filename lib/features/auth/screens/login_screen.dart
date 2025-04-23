@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             controller.login();
-                            Navigator.push( 
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => CourseListScreen(),

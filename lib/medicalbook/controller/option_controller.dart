@@ -11,6 +11,14 @@ class OptionController extends GetxController {
         {'title': 'Request book', 'icon': 'assets/samiksha/request.svg'},
       ].obs;
 
+  final accountsoption =
+      [
+        {'title': 'My Orders', 'icon': 'assets/samiksha/orders.svg'},
+        {'title': 'Saved address', 'icon': 'assets/samiksha/address.svg'},
+        {'title': 'My Coupons', 'icon': 'assets/samiksha/coupons.svg'},
+        {'title': 'Membership', 'icon': 'assets/samiksha/diamond.svg'},
+      ].obs;
+
   void selectOption(String title) {
     selectedOption.value = title;
   }

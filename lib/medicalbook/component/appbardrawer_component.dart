@@ -35,7 +35,7 @@ class AppbarComponents extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 const SizedBox(width: 15),
                 ComponentWrapper(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  padding: EdgeInsets.symmetric(horizontal: 1, vertical: 2),
                   backgroundColor: DTColor.orangeLite,
                   child: Center(
                     child: Row(

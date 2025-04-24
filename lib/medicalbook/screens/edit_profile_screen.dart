@@ -169,69 +169,54 @@ class EditProfileScreen extends StatelessWidget {
                   style: header7.copyWith(color: DTColor.bookTitleBlack),
                 ),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap:
-                              () => controller.pickImage(ImageSource.gallery),
-                          child: SvgPicture.asset(
-                            'assets/samiksha/selectimage.svg',
-                          ),
+                Obx(() {
+                  final image = controller.imageFile.value;
+                  return Row(
+                    mainAxisAlignment:
+                        image == null
+                            ? MainAxisAlignment.center
+                            : MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () => controller.pickImage(ImageSource.gallery),
+                        child: SvgPicture.asset(
+                          'assets/samiksha/selectimage.svg',
                         ),
-                      ],
-                    ),
-                    Obx(
-                      () =>
-                          controller.imageFile.value != null
-                              ? ComponentWrapper(
-                                width: 156,
-                                padding: EdgeInsets.zero,
-                                child: Stack(
-                                  fit: StackFit.passthrough,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5),
-                                      child: Image.file(
-                                        fit: BoxFit.cover,
-                                        controller.imageFile.value!,
-                                        height: 156,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () => controller.removeImage(),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          radius: 12,
-                                          child: Icon(
-                                            Icons.cancel_outlined,
-                                            color: DTColor.red,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                      ),
+                      if (image != null)
+                        ComponentWrapper(
+                          width: 156,
+                          padding: EdgeInsets.zero,
+                          child: Stack(
+                            fit: StackFit.passthrough,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Image.file(
+                                  fit: BoxFit.cover,
+                                  controller.imageFile.value!,
+                                  height: 156,
                                 ),
-                              )
-                              : ComponentWrapper(
-                                width: 156,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 65,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'No image selected',
-                                    style: header7.copyWith(),
+                              ),
+                              GestureDetector(
+                                onTap: () => controller.removeImage(),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: CircleAvatar(
+                                    radius: 12,
+                                    child: Icon(
+                                      Icons.cancel_outlined,
+                                      color: DTColor.red,
+                                    ),
                                   ),
                                 ),
                               ),
-                    ),
-                  ],
-                ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  );
+                }),
 
                 SizedBox(height: 20),
                 GestureDetector(

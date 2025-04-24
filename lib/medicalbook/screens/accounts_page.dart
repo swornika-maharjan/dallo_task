@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutterproject/medicalbook/component/amore_option_component.dart';
+import 'package:flutterproject/medicalbook/component/company_updates_component.dart';
 import 'package:flutterproject/medicalbook/component/refer_component.dart';
 import 'package:flutterproject/medicalbook/component_wrapper.dart';
 import 'package:flutterproject/medicalbook/controller/bottom_navigation_controller.dart';
@@ -175,41 +176,45 @@ class AccountsPage extends StatelessWidget {
             ),
 
             ReferComponent(),
+
             SizedBox(height: 10),
 
-            GridView.count(
-              crossAxisCount: 2,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              childAspectRatio: 5 / 2,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              children:
-                  optioncontroller.accountsoption.map((option) {
-                    final title = option['title']!;
-                    final iconPath = option['icon']!;
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 5 / 2,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children:
+                    optioncontroller.accountsoption.map((option) {
+                      final title = option['title']!;
+                      final iconPath = option['icon']!;
 
-                    return ComponentWrapper(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
+                      return ComponentWrapper(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 10,
+                        ),
 
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(iconPath),
-                          const SizedBox(width: 10),
-                          Text(
-                            title,
-                            style: header5.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: DTColor.bookTitleBlack,
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(iconPath),
+                            const SizedBox(width: 10),
+                            Text(
+                              title,
+                              style: header5.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: DTColor.bookTitleBlack,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }).toList(),
+                          ],
+                        ),
+                      );
+                    }).toList(),
+              ),
             ),
             SizedBox(height: 15),
 
@@ -217,25 +222,121 @@ class AccountsPage extends StatelessWidget {
 
             SizedBox(height: 15),
 
-            GestureDetector(
-              onTap: () => Get.to(() => FaqsScreen()),
-              child: ComponentWrapper(
-                width: 380,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset('assets/samiksha/faqs.svg'),
-                        SizedBox(width: 5),
-                        Text('FAQs'),
-                      ],
+            ComponentWrapper(
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, top: 10),
+                    child: Text(
+                      'Help and Support',
+                      style: header7.copyWith(color: DTColor.assetGrey),
                     ),
-                    Icon(Icons.arrow_forward_ios_outlined, size: 16),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 15),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () => Get.to(() => FaqsScreen()),
+                        child: ComponentWrapper(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 15,
+                          ),
+                          borderColor: DTColor.platinum,
+                          width: 380,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  SvgPicture.asset('assets/samiksha/faqs.svg'),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    'FAQs',
+                                    style: header6.copyWith(
+                                      color: DTColor.darkbluishgray,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 16,
+                                color: DTColor.textFieldHintColor,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
+
+            SizedBox(height: 10),
+
+            SizedBox(height: 292, child: DTListTileComponent()),
+            SizedBox(height: 10),
+            SizedBox(height: 292, child: DTListTileComponent()),
+            SizedBox(height: 10),
+
+            ComponentWrapper(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'More',
+                    style: header7.copyWith(color: DTColor.assetGrey),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Rate us',
+                            style: header6.copyWith(
+                              color: DTColor.darkbluishgray,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Icon(Icons.arrow_forward_ios_outlined, size: 16),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            ComponentWrapper(
+              width: 380,
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+              backgroundColor: DTColor.lightRed.withOpacity(0.1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset('assets/samiksha/logout.svg'),
+                  SizedBox(width: 5),
+                  Text(
+                    'Logout',
+                    style: header5.copyWith(
+                      color: DTColor.red,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
           ],
         ),
       ),

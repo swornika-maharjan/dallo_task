@@ -21,6 +21,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
 
 class ImagePickerScreen extends StatelessWidget {
   final ImagePickerController controller = Get.put(ImagePickerController());
+
+ ImagePickerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
